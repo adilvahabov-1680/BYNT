@@ -478,7 +478,34 @@ button,input,select,textarea,label{font-family:inherit}
 @keyframes slideIn{from{transform:translateX(110%);opacity:0}to{transform:none;opacity:1}}
 </style>
 </head>
-<body>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAS1nK7G3ZPD5OlrmsMSj5DHrhQo3m8pO0",
+  authDomain: "bynt-crm.firebaseapp.com",
+  projectId: "bynt-crm",
+  storageBucket: "bynt-crm.firebasestorage.app",
+  messagingSenderId: "476398995320",
+  appId: "1:476398995320:web:0ea23609550a292264aa8d"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.firebaseDB = db;
+window.firebaseDoc = doc;
+window.firebaseGetDoc = getDoc;
+window.firebaseSetDoc = setDoc;
+
+console.log("Firebase qoşuldu");
+</script><body>
 
 <div id="appRoot"></div>
 <div id="app" class="app" style="display:none">
